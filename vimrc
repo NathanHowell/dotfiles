@@ -10,7 +10,12 @@ syntax on
 " au Bufenter *.hs compiler ghc
 set transparency=10
 set number
-set tb=
+set tabstop=2
+set shiftwidth=2
+set expandtab
+"
+" set tb=
+set guioptions-=T
 
 " Tagbar options
 " let tagbar_singleclick = 1
