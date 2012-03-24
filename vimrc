@@ -101,14 +101,17 @@ call pathogen#helptags()
 
 let g:neocomplcache_enable_at_startup = 1
 
-colorscheme fu
 filetype plugin on
 syntax on
 " au Bufenter *.hs compiler ghc
-set transparency=10
 set number
 set tabstop=2
 set shiftwidth=2
 set expandtab
-set guioptions-=T
+
+if has("gui_running")
+  colorscheme fu
+  set guioptions-=T
+  set transparency=10
+endif
 
