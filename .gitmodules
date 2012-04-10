@@ -10,3 +10,6 @@
 [submodule "bundle/neocomplcache"]
 	path = bundle/neocomplcache
 	url = git://github.com/Shougo/neocomplcache.git
+[submodule "bundle/scala"]
+	path = bundle/scala
+	url = git://github.com/derekwyatt/vim-scala.git
