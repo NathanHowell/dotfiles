@@ -108,6 +108,10 @@ set number
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set scrolloff=3
+set nobackup
+set title
+set ttyfast
 
 if has("gui_running")
   colorscheme fu
