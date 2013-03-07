@@ -13,3 +13,9 @@
 [submodule "bundle/scala"]
 	path = bundle/scala
 	url = git://github.com/derekwyatt/vim-scala.git
+[submodule "bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = git://github.com/Valloric/YouCompleteMe.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
