@@ -1,27 +1,44 @@
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
+if has('vim_starting')
+ set nocompatible               " Be iMproved
+
+ " Required:
+ set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'Shougo/vimproc.vim'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'eagletmt/neco-ghc'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'nanotech/jellybeans.vim'
+
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
+let g:ycm_semantic_triggers = {'haskell' : ['.']}
+let g:necoghc_enable_detailed_browse = 1
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-" if has("vms")
-  " set nobackup		" do not keep a backup file, use versions instead
-" else
-  " set backup		" keep a backup file
-" endif
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
-
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -84,10 +101,6 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-call pathogen#infect() 
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-
 let g:neocomplcache_enable_at_startup = 1
 
 filetype plugin on
@@ -103,10 +116,9 @@ set title
 set ttyfast
 set listchars=tab:»»,trail:•
 set list
+colorscheme jellybeans
 
 if has("gui_running")
-  colorscheme fu
   set guioptions-=T
   set transparency=10
 endif
-
